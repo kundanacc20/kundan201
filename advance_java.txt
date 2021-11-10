@@ -1,0 +1,45 @@
+import javax.servlet.*;
+import java.io.*;
+import javax.servlet.annotation.WebServlet;
+
+
+@WebServlet("/Calci1")
+public class Calci1 extends GenericServlet 
+{
+
+	@Override
+	public void service(ServletRequest req, ServletResponse res) throws ServletException, IOException 
+	{	
+		PrintWriter pw=res.getWriter();
+		res.setContentType("text/html");
+		String a=req.getParameter("t1");
+		String b=req.getParameter("t2");
+		String c=req.getParameter("b1");
+		
+	    pw.println("<h1><center>calculator Result</center><h1<hr>");
+		pw.print("the no is "+a);
+		pw.println("<br><br>");
+		pw.print("the no is "+b);
+		pw.println("<br><br> ");
+		pw.print("the button is  "+c);
+		if(c.equals("ADD"))
+		{
+			pw.println("the Result is "+(Integer.parseInt(a)+Integer.parseInt(b)));
+		}
+		else if(c.equals("SUB"))
+		{
+			pw.println("the Result is "+(Integer.parseInt(a)- Integer.parseInt(b)));
+		}
+		else if(c.equals("MUL"))
+		{
+			pw.println("the Result is "+(Integer.parseInt(a)*Integer.parseInt(b)));
+		
+		}
+		else
+		{
+			pw.println("the Result is "+(Integer.parseInt(a)/Integer.parseInt(b)));
+		}
+	}
+	
+}
+------------------------------------------------------------------------
